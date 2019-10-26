@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Wuselkusen-Bank</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
+	<script type="text/javascript" src="jquery-3.4.1.min.js"></script>
+	<script type="text/javascript" src="bootstrap.bundle.min.js"></script>
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+
+<body>
+	<div class="topnav" id="myTopnav">
+		<a class="navlink" id="balance">Guthaben</a>
+		<a class="navlink" id="payment">Aus-/Einzahlung</a>
+		<a class="navlink" id="transfer">Überweisung</a>
+		<a class="navlink" id="management">Kontomanagement</a>
+		<a class="navlink" id="info">Info</a>
+		<a class="navlink" id="logout">Logout</a>
+		<a href="javascript:void(0);" class="icon" onclick="myFunction()">
+			<i class="fa fa-bars"></i>
+		</a>
+	</div>
+
+
+	<div class="card" id="management-card">
+		<div class="card-header">
+			Kontomanagement
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">Konto anlegen</h5>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Name</span>
+				</div>
+				<input type="text" class="form-control" id="management-create-name">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">IBAN</span>
+				</div>
+				<input type="text" class="form-control"  id="management-create-iban" placeholder="automatisch generiert">
+			</div>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Kontostand</span>
+				</div>
+				<input type="text" class="form-control" id="management-create-value">
+			</div>
+			<a href="#" class="btn btn-primary" id="management-create-execute">Anlegen</a>
+		</div>
+	</div>
+
+	<div class="card" id="payment-card">
+		<div class="card-header">
+			Aus-/Einzahlung
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">Zahlung</h5>
+
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">IBAN</span>
+				</div>
+				<input type="text" class="form-control" id="payment-iban">
+			</div>
+
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Betrag</span>
+				</div>
+				<input type="text" class="form-control" id="payment-value">
+			</div>
+
+			<div class="btn-group btn-group-toggle" data-toggle="buttons" id="payment-toggle">
+				<label class="btn btn-light active">
+					<input type="radio" name="options" autocomplete="off" checked> Auszahlung
+				</label>
+				<label class="btn btn-light">
+					<input type="radio" name="options" autocomplete="off"> Einzahlung
+				</label>
+			</div>
+
+			<br><br>
+
+			<a href="#" class="btn btn-primary" id="payment-execute">Buchen</a>
+		</div>
+	</div>
+
+	<div class="card" id="transfer-card">
+		<div class="card-header">
+			Überweisung
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">Überweisung</h5>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Sender-IBAN</span>
+				</div>
+				<input type="text" class="form-control" id="transfer-send-iban">
+			</div>
+
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Empfänger-IBAN</span>
+				</div>
+				<input type="text" class="form-control" id="transfer-receive-iban">
+			</div>
+
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Betrag</span>
+				</div>
+				<input type="text" class="form-control" id="transfer-value">
+			</div>
+
+
+			<a href="#" class="btn btn-primary" id="transfer-execute">Buchen</a>
+		</div>
+	</div>
+
+	<div class="card" id="balance-card">
+		<div class="card-header">
+			Guthaben
+		</div>
+		<div class="card-body">
+			<h5 class="card-title">Nutzer suchen</h5>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<span class="input-group-text">Name oder IBAN</span>
+				</div>
+				<input type="text" class="form-control" id="balance-identifier">
+			</div>
+
+			<a href="#" class="btn btn-primary" id="balance-execute">Zeigen</a>
+		</div>
+	</div>
+
+	<div class="card" id="info-card">
+		<div class="card-header">
+			Info
+		</div>
+		<div class="card-body">
+			<p>Diese Software wurde Entwickelt von</p>
+			<p><a href="http://kugelx.de" class="name">Luis Kugel</a></p>
+			<p>und steht unter der MIT-Lizenz.</p>
+		</div>
+	</div>
+
+
+	<div class="popup">
+		<div class="popup-content">
+			<span id="close-button">&times;</span>
+			<h3>ERROR: 0x000001</h3>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="main.js"></script>
+
+</html>
