@@ -45,7 +45,10 @@ function reloadPage() {
 }
 
 function executeAJAX(operation, iban, value, name, iban2) {
-    $.post("http://286558.webhosting50.1blu.de/test/execute.php",
+    var href = window.location.href;
+    href = href.replace("main.html", "")
+    href = href.replace("#", "")
+    $.post(href + "execute.php",
         {
             operation: operation,
             name: name,
@@ -114,7 +117,7 @@ $(document).ready(function () {
         var IBAN = $("#management-create-iban").val()
         var value = $("#management-create-value").val()
         if(IBAN === ""){
-            IBAN = "WB" + Math.random() * Math.pow(10, 20)
+            IBAN = "WB" + Math.random() * Math.pow(10, 16)
         }
         executeAJAX("management-create", IBAN, value, name)
         $("#management-create-name").val("")

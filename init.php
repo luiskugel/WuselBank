@@ -29,6 +29,11 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
+$sql = "DROP TABLE IF EXISTS `users`";
+if ($conn->query($sql) === TRUE) {
+     echo "<br>Recreated database successfull!<br><br>";
+}
+
 // sql to create table
 $sql = "CREATE TABLE `users` ( `id` INT(6) NOT NULL AUTO_INCREMENT , `name` TINYTEXT NOT NULL , `iban` VARCHAR(22) NOT NULL , `money` DECIMAL(5,1) NOT NULL , PRIMARY KEY (`id`))";
     
